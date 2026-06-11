@@ -1,0 +1,575 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 31,
+   "id": "56b945e7-e537-45f0-806a-f359ae843f10",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# 1). Vowel Counter\n",
+    "\"\"\"\n",
+    "Write a Python function that takes a string as input. Using a for loop, iterate through each character.\n",
+    "If the character is a vowel (a, e, i, o, u, case-insensitive), increment a counter.\n",
+    "Store the count of each vowel in a dictionary. Finally, \n",
+    "print the total number of vowels found and the dictionary of vowel counts\n",
+    "\n",
+    "\"\"\";"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "39112390-6e1b-45ec-8a9e-811b9d510503",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter the string: sakshi\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Total vowels = 2\n",
+      "Vowel counts = {'a': 1, 'e': 0, 'i': 1, 'o': 0, 'u': 0}\n"
+     ]
+    }
+   ],
+   "source": [
+    "str = input(\"Enter the string:\")\n",
+    "\n",
+    "vowels = {'a':0, 'e':0, 'i':0, 'o':0, 'u':0}\n",
+    "total = 0\n",
+    "\n",
+    "for ch in str.lower():\n",
+    "    if ch in vowels:\n",
+    "        vowels[ch] += 1\n",
+    "        total += 1\n",
+    "\n",
+    "print(\"Total vowels =\", total)\n",
+    "print(\"Vowel counts =\", vowels)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 29,
+   "id": "81b0b97a-a0b4-4f23-9ea1-0c6aca744fda",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# 2). Palindrome Checker with list:\n",
+    "\"\"\"\n",
+    "Write a Python function that accepts a string. Inside the function, \n",
+    "use a for loop to build a new list containing the characters of the string in reverse order.\n",
+    "Then, use an if-else statement to check if the original string is a palindrome \n",
+    "(reads the same forwards and backward) by comparing it to the string formed from the reversed list. \n",
+    "Print whether the string is a palindrome or not.\n",
+    "\n",
+    "\"\"\";"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "76c9ccaf-a1e7-4111-b598-e1a85aca0e71",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter the string: sakshi\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Not Palindrome\n"
+     ]
+    }
+   ],
+   "source": [
+    "s = input(\"Enter the string:\")\n",
+    "rev = []\n",
+    "\n",
+    "for i in range(len(s)-1, -1, -1):\n",
+    "    rev.append(s[i])\n",
+    "\n",
+    "rev_str = \"\".join(rev)\n",
+    "\n",
+    "if s == rev_str:\n",
+    "    print(\"Palindrome\")\n",
+    "else:\n",
+    "    print(\"Not Palindrome\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 28,
+   "id": "aac377c2-6ee1-44bb-aab3-d9a6877df021",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# 3). Character Frequency Counter\n",
+    "\"\"\"\n",
+    "Create a Python function that takes a string. \n",
+    "Use a for loop to iterate through the string and populate a dictionary where \n",
+    "keys are characters and values are their frequencies. Use an if-else statement to handle whether \n",
+    "a character is already in the dictionary or not. Print the resulting character frequency dictionary.\n",
+    "\n",
+    "\"\"\";"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "id": "3be8d29a-7d75-4aec-9b7e-73a5f05566f9",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter a string:  sakshi\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "{'s': 2, 'a': 1, 'k': 1, 'h': 1, 'i': 1}\n"
+     ]
+    }
+   ],
+   "source": [
+    "s = input(\"Enter a string: \")\n",
+    "\n",
+    "freq = {}\n",
+    "\n",
+    "for ch in s:\n",
+    "    if ch in freq:\n",
+    "        freq[ch] = freq[ch] + 1\n",
+    "    else:\n",
+    "        freq[ch] = 1\n",
+    "\n",
+    "print(freq)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 27,
+   "id": "8f27fdc5-1dbd-4ab9-bc8d-381675b684c7",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# 4). Word Length Classification\n",
+    "\"\"\"\n",
+    "Write a Python function that takes a sentence (string) as input. \n",
+    "Split the sentence into words. Using a for loop, iterate through each word.\n",
+    "Use if-elif-else statements to classify words as \"short\" (length < 5), \n",
+    "\"medium\" (5 <= length <= 8), or \"long\" (length > 8). Store these classified words in separate lists\n",
+    "(e.g., short_words, medium_words, long_words). Print all three lists\n",
+    "\n",
+    "\"\"\";"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "e5697f50-580d-4ea6-b3ff-756ddb8f61b0",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter a sentence:  python programming\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "python -> Medium\n",
+      "programming -> Long\n"
+     ]
+    }
+   ],
+   "source": [
+    "s = input(\"Enter a sentence: \")\n",
+    "\n",
+    "words = s.split()\n",
+    "\n",
+    "for word in words:\n",
+    "    length= len(word)\n",
+    "\n",
+    "    if length < 5:\n",
+    "        print(word, \"-> Short\")\n",
+    "    elif 5 <=length <=8:\n",
+    "        print(word, \"-> Medium\")\n",
+    "    else:\n",
+    "        print(word, \"-> Long\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 26,
+   "id": "ec8bcdc5-a960-4f4e-85be-b87f6a991d9d",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# 5) Substrings with Specific Start/End:\n",
+    "\"\"\"\n",
+    "Given a list of strings, write a function that iterates through each string. \n",
+    "If a string starts with a specific prefix (e.g., \"py\") and ends with a specific suffix\n",
+    "(e.g., \"thon\"), add it to a new list called matching_strings. Use an if statement to check the conditions.\n",
+    "Print the matching_strings list.\n",
+    "\n",
+    "\"\"\";"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "id": "78044526-3dad-4b35-930b-2adeba70ba74",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "['python', 'py123thon', 'python']\n"
+     ]
+    }
+   ],
+   "source": [
+    "def matching_strings(strings):\n",
+    "    result = []\n",
+    "\n",
+    "    for s in strings:\n",
+    "        if s.startswith(\"py\") and s.endswith(\"thon\"):\n",
+    "            result.append(s)\n",
+    "\n",
+    "    print(result)\n",
+    "\n",
+    "list_strings = [\"python\", \"pythons\", \"py123thon\", \"java\", \"python\", \"pyabc\"]\n",
+    "matching_strings(list_strings)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 24,
+   "id": "8bdd185c-dff1-496c-8909-d79fba6ad8e2",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# 6) Unique Word Extractor:\n",
+    "\"\"\"\n",
+    "Write a function that takes a paragraph (string) as input. \n",
+    "Convert the paragraph to lowercase and remove punctuation.\n",
+    "Use a for loop to split the paragraph into words and add each unique word to a set data structure. \n",
+    "Finally, convert the set back to a sorted list and print it.\n",
+    "\n",
+    "\"\"\";"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 16,
+   "id": "c17ffd59-7b92-4d6c-915a-2d19359d0c4d",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter a paragraph:  hello my name is sakshi bombale \n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "['bombale', 'hello', 'is', 'my', 'name', 'sakshi']\n"
+     ]
+    }
+   ],
+   "source": [
+    "def unique_words(paragraph):\n",
+    "    paragraph = paragraph.lower()\n",
+    "\n",
+    "    paragraph = paragraph.replace(\".\", \"\")\n",
+    "\n",
+    "    words = paragraph.split()\n",
+    "\n",
+    "    unique_set = set()\n",
+    "\n",
+    "    for word in words:\n",
+    "        unique_set.add(word)\n",
+    "\n",
+    "    result = sorted(unique_set)\n",
+    "\n",
+    "    print(result)\n",
+    "\n",
+    "text = input(\"Enter a paragraph: \")\n",
+    "unique_words(text)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 22,
+   "id": "81ad4724-1851-460c-a03d-e529e1e2c056",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# 7) Even/Odd Indexed Character Separator:\n",
+    "\"\"\"\n",
+    "Create a Python function that takes a string. Using a for loop with enumerate, \n",
+    "iterate through the string. Use an if-else statement to check if the index of a character is even or odd.\n",
+    "Store characters at even indices in one list and characters at odd indices in another list. Print both lists\n",
+    "\n",
+    "\"\"\";"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "id": "9e565001-9f1f-46e4-b994-5f881998b606",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter a string:  sakshi\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Even index characters: ['s', 'k', 'h']\n",
+      "Odd index characters: ['a', 's', 'i']\n"
+     ]
+    }
+   ],
+   "source": [
+    "def separate_characters(text):\n",
+    "    even_chars = []\n",
+    "    odd_chars = []\n",
+    "\n",
+    "    for index, char in enumerate(text):\n",
+    "        if index % 2 == 0:\n",
+    "            even_chars.append(char)\n",
+    "        else:\n",
+    "            odd_chars.append(char)\n",
+    "\n",
+    "    print(\"Even index characters:\", even_chars)\n",
+    "    print(\"Odd index characters:\", odd_chars)\n",
+    "\n",
+    "string = input(\"Enter a string: \")\n",
+    "separate_characters(string)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 21,
+   "id": "4d85ad00-619a-435b-a728-9f59cfd78653",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# 8) String Anagram Checker:\n",
+    "\"\"\"\n",
+    "Write a function that takes two strings as input. Convert both strings into lists of characters.\n",
+    "Sort both lists. Use an if-else statement to check if the sorted lists are identical.\n",
+    "Print whether the two strings are anagrams of each other (contain the same characters with the same frequencies).\n",
+    "\n",
+    "\"\"\";"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 19,
+   "id": "97c28f02-d0ca-4154-a324-6eed052cded7",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter the first string:  sakshi\n",
+      "Enter the second string:  sakshi\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "The strings are anagrams \n"
+     ]
+    }
+   ],
+   "source": [
+    "def anagram_checker():\n",
+    "    str1 = input(\"Enter the first string: \")\n",
+    "    str2 = input(\"Enter the second string: \")\n",
+    "\n",
+    "    list1 = list(str1)\n",
+    "    list2 = list(str2)\n",
+    "\n",
+    "    list1.sort()\n",
+    "    list2.sort()\n",
+    "\n",
+    "    if list1 == list2:\n",
+    "        print(\"The strings are anagrams \")\n",
+    "    else:\n",
+    "        print(\"The strings are not anagrams \")\n",
+    "\n",
+    "anagram_checker()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 20,
+   "id": "8f43ed80-12e0-43b5-b108-8962179dfb05",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# 9) Missing Character Finder (Alphabet Check):\n",
+    "\"\"\"\n",
+    "Given a string, write a function that determines which lowercase English alphabet letters are\n",
+    "not present in the string. Use a set to store all lowercase letters. \n",
+    "Iterate through the input string, removing each found letter from the set.\n",
+    "Print the remaining letters in the set\n",
+    "\n",
+    "\"\"\";"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 33,
+   "id": "599121b4-dfd0-4729-87b1-146654cda9cb",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter a string:  sakshi\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Missing letters are: {'y', 'm', 'e', 'r', 't', 'q', 'p', 'o', 'u', 'f', 'w', 'j', 'n', 'b', 'g', 'd', 'x', 'z', 'v', 'l', 'c'}\n"
+     ]
+    }
+   ],
+   "source": [
+    "def missing_letters():\n",
+    "    text = input(\"Enter a string: \").lower()\n",
+    "\n",
+    "    letters = set(\"abcdefghijklmnopqrstuvwxyz\")\n",
+    "\n",
+    "    for ch in text:\n",
+    "        if ch in letters:\n",
+    "            letters.remove(ch)\n",
+    "\n",
+    "    print(\"Missing letters are:\", letters)\n",
+    "\n",
+    "missing_letters()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 32,
+   "id": "2f3baf04-7abe-4477-8429-fe40d3d848c0",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# 10) Custom String Reversal (Word by Word):\n",
+    "\"\"\"\n",
+    "Write a function that takes a sentence. Use a for loop to iterate through the words of the sentence.\n",
+    "Store each word in a list. Then, using another loop (or list slicing), \n",
+    "reverse the order of words in the list. Finally, join the reversed words back into a single \n",
+    "string and print the result. (Example: \"Hello World\" -> \"World Hello\")\n",
+    "\n",
+    "\"\"\";"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 34,
+   "id": "f4a658bd-9702-4f6f-951f-2302871f308a",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter a sentence:  hello i am sakshi\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Reversed sentence: sakshi am i hello\n"
+     ]
+    }
+   ],
+   "source": [
+    "def reverse_words():\n",
+    "    sentence = input(\"Enter a sentence: \")\n",
+    "\n",
+    "    words = []\n",
+    "\n",
+    "    for word in sentence.split():\n",
+    "        words.append(word)\n",
+    "\n",
+    "    reversed_words = words[::-1]\n",
+    "\n",
+    "    result = \" \".join(reversed_words)\n",
+    "\n",
+    "    print(\"Reversed sentence:\", result)\n",
+    "\n",
+    "reverse_words()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "85374e5f-7cfb-4664-93d0-9e5caf7f9f4c",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python [conda env:base] *",
+   "language": "python",
+   "name": "conda-base-py"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.13.9"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
